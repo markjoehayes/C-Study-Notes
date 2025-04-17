@@ -14,18 +14,21 @@ Data Types:
 												  any data type
 
 
-LVALUE AND RVALUE:
-  lvalue refers to memory location, can be on left or right of assignment
-  rvalue refers to data value - on right of assignment ALWAYS
+	LVALUE AND RVALUE:
+  		lvalue refers to memory location, can be on left or right of assignment
+  		rvalue refers to data value - on right of assignment ALWAYS
 
- CONSTANTS AND LITERALS
- 	constants are fixed values that can't be altered during program run
-	treated just like variables, but values can't be modigfied
+ 	CONSTANTS AND LITERALS
+ 		constants are fixed values that can't be altered during program run
+		treated just like variables, but values can't be modigfied
 
 	-use preprocessor  eg: #defin MAX_SIZE 50     (no equals or ;)
 	-use const keyword eg: const int MAX_SIZE = 5;
 
 	  ****in both cases, common to use all caps***
+
+USER INPUT USING SCANF:
+	RE: strings - scanf(" %[^\n]", name);  /*%s will stop with first space*/
 
 STORAGE CLASSES
    auto
@@ -402,10 +405,10 @@ PASSING POINTERS TO FUNCTIONS
     	return (0);
 	}
 
-	void getSeconds(unsigned long *par)
+	void getSeconds(unsigned long *pair)
 	{
     	/*Get the current number of seconds*/
-    	*par = time(NULL);
+    	*pair = time(NULL);
     	return;
 	}
 	________________________________________________________________________________________
