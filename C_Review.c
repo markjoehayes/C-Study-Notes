@@ -3,7 +3,7 @@ Data Types:
 	2. enumerated types: define variables that can only assign certain discrete integer values
 	   throughout the program.
 	3. The type void
-	4. derived types: pointer types/array types/ structure types/union types and function types	
+	3. derived types: pointer types/array types/ structure types/union types and function types	
 			array and structure types are reffered to as aggregate types
 	
 	VOID TYPE - 
@@ -12,6 +12,9 @@ Data Types:
 					a pointer type of void reperesents the address of an object, but not its type
 					eg void *malloc(size_t size); returns a pointer to void which can be casted to
 												  any data type
+	REGISTER VARIABLES
+	  - probably no difference in modern C compilers  eg register int x;
+		intended to place the variable in CPU rather than memory for faster access
 
 
 	LVALUE AND RVALUE:
@@ -33,7 +36,8 @@ USER INPUT USING SCANF:
 STORAGE CLASSES
    auto
    register - stored in a register instead of RAM (maybe!) only used for quick access variables 
-   			  like counters 
+   			  like counters - probably no difference with modern compilers (optimizers will do this automatically for 
+			  frequently used variables) 
    static - keep variable value through life of program.  When used in global variables restricts 
             scope to current file only
    extern - use global variables from another file
@@ -574,7 +578,9 @@ DATA STRUCTURES AND ALGORITHMS
 			to operational complexities
 			1. Array Data Structure
 				stored in contigous memory and all data is the same type
-			2. Stack Data Structure
+			2. Stack Data Structure - dynamic memory structure that gets larger
+			   when we "push" new data onto it and shrinks when we "pop" data from 
+			   it
 				LIFO
 			3. Que data structure
 				FIFO
