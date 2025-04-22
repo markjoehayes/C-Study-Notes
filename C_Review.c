@@ -463,6 +463,15 @@ STRUCTURES
 	Accessing Structure Members
 		member access operator(.)
 	
+	When assigning strings to structure arrays (3 ways)
+	   1. strcpy from <string.h> ****prefrerred****
+	   2. initialize the structure at declarion time:
+	   		struct Books = {"Hitchhikers Guide", "Adam Douglas", "Sci-Fi", 765432};
+			starting in C99: use "designated initializers" you don't have to remmeber order
+				struct Books = {.title = "Hitchhikers Guide", ... .book_id = 765432};
+	   3. assign character by character
+
+
 	Example: Create and print Book struct
 	_____________________________________________________________________________________
 
