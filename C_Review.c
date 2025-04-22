@@ -18,8 +18,10 @@ Data Types:
 
 
 	LVALUE AND RVALUE:
-  		lvalue refers to memory location, can be on left or right of assignment
-  		rvalue refers to data value - on right of assignment ALWAYS
+  		-lvalue refers to memory location, can be on left or right of assignment
+		 lvalue is an expression referring to an object and an object is a 
+		 named region of storage
+  		-rvalue refers to data value - on right of assignment ALWAYS
 
  	CONSTANTS AND LITERALS
  		constants are fixed values that can't be altered during program run
@@ -31,7 +33,9 @@ Data Types:
 	  ****in both cases, common to use all caps***
 
 USER INPUT USING SCANF:
-	RE: strings - scanf(" %[^\n]", name);  /*%s will stop with first space*/
+	scanf("%<format specifier>", address)
+		RE: strings - scanf(" %[^\n]s", name);  /*%s will stop with first space*/
+	fgets(str, sizeof(str), stdin) /* includes "\n" /safer as it prevents overflows*/
 
 STORAGE CLASSES
    auto
@@ -255,6 +259,8 @@ POINTERS
 
 	NULL POINTERS - int *ptr = NULL;
 		value is defined as 0, nothing can point to memory location 0 as that is 
+		NULL is a macro, created to be compatible between various compilers/systems
+
 		reserved for the OS.  Null pointer is used to signal the pointer points to nothing
 
 		to check for a NULL pointer, you can use if:
