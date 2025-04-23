@@ -67,6 +67,16 @@ ARRAYS
 	-data structure that stores fixed-size sequential sequence of elements
 	 of the same type (collection of variables of same type)
 	-occupies contiguous memory locations
+	Declaration eg:
+				int a[100] = {0};  sets all to 0
+				int a[10] = {0, 11, 12, [5]=55};
+						sets index 0, 1,2 and 5, rest are set to 0
+	Out of Bounds:
+		printing off the end of an array causes undefines behavior
+		undefined - anything can happen (0s, garbage values, etc)
+	
+	Multidimensional Arrays need all size (can miss first) to be passed 
+	    into function
 
 	Example program to show declaration, assignemnt and accessing arrays
 
@@ -266,6 +276,9 @@ POINTERS
 		to check for a NULL pointer, you can use if:
 			if(ptr)  /*successful if ptr is not NULL*/
 			if(!ptr) /*successful if ptr is NULL*/
+
+		***dereferencing a NULL pointer is undefined behavior since it doesn't actually
+		          point to a value		
 	
 	_________________________________________________________________________________
 	CONCEPT                       |  DESCRIPTION
@@ -294,6 +307,11 @@ POINTERS
 								  |dynamically allocated memory
     __________________________________________________________________________________
 
+	ENDIANNESS
+		-refers to the order that the bytes come into memory:
+			big-endian - most significant byte comes first
+			little-endian - 
+			mid-endian - most significant byte comes somewhere else 
 
 	POINTER ARITHMATIC
 		four operators: ++, --, +, -
@@ -427,15 +445,28 @@ PASSING POINTERS TO FUNCTIONS
 STRINGS
 
 	a string is an array of characters terminated by '\0'.
+	a pointer to the first character in the array
 	char arr[] = {'H', 'e', 'l', 'l', 'o', '\0'};
 	char arr[] = "Hello";
 	char *arr = "Hello"
 
+	**NOTE**
+	char arr[] = "Hello"  is subtly different from char *arr = "Hello"
+	char arr[] is mutable (copy of a string)
+		ex char[0] = 'z'  zello
+	char *arr is stored in read only memory
+		ex char[0] = 'z'  undefined behavior (probably crash)
+	
+
 	STRING FUNCTIONS: <string.h>
 		
 		strcpy(s1, s2);
+			can't copy with '=' that will make a copy of pointer and leave
+			you with two pointers to the same string
+		strncpys1, s2, sizeof(s1)
+			safer version of strcpy - checks bounds
 		strcat(s1, s2);
-		strlen(s1);
+		strlen(s1);    ****returns type size_t (%zu)****
 		strcmp(s1,s2);
 			returns 0 if s1 == s2, <0 if s1<s2 and >0 if s1>s2
 		strchr(s1, ch);
@@ -444,7 +475,7 @@ STRINGS
 			returns a pointer to the first occurance of s2 in s1
 
 	Each individual element of a char array is an lvalue which an individual
-	 character may be assigned, but a chat pointer is also an lvalue to which 
+	 character may be assigned, but a char pointer is also an lvalue to which 
 	 an entire string may be assigned after that pointer has been declared 
 
 STRUCTURES
