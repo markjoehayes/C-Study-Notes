@@ -34,7 +34,7 @@ Data Types:
 
 USER INPUT USING SCANF:
 	scanf("%<format specifier>", address)
-		RE: strings - scanf(" %[^\n]s", name);  /*%s will stop with first space*/
+		RE: strings - scanf(" %[^\n]s", name);  /*[^\n] tells scanf to keep taking input until \n*/
 	fgets(str, sizeof(str), stdin) /* includes "\n" /safer as it prevents overflows*/
 
 STORAGE CLASSES
